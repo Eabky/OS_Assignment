@@ -1,6 +1,6 @@
 package assignment.client;
 
-public class Client
+public class ClientHandler
 {
 
 }

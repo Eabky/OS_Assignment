@@ -1,4 +1,6 @@
 package assignment.server;
 
-public class Server {
+public class Server
+{
+
 }
