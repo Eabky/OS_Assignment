@@ -1,5 +1,7 @@
 package assignment.client;
 
+import assignment.hotel.Hotel;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;

@@ -1,6 +1,7 @@
 package assignment.server;
 
 import assignment.client.ClientHandler;
+import assignment.hotel.Hotel;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -25,7 +26,6 @@ public class Server
                 Socket socket = serverSocket.accept();
                 System.out.println("A client has connected!");
                 ClientHandler clientHandler = new ClientHandler(socket);
-
                 Thread thread = new Thread(clientHandler);
                 thread.start();
             }
@@ -57,5 +57,6 @@ public class Server
         ServerSocket serverSocket = new ServerSocket(1234);
         Server server = new Server(serverSocket);
         server.runServer();
+
     }
 }
