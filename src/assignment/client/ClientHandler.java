@@ -9,9 +9,9 @@ public class ClientHandler implements Runnable
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>(); //list of clienthandler objects
 
     private Socket socket;
-
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
+    private String clientID;
 
     public ClientHandler(Socket socket)
     {
