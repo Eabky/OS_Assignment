@@ -1,7 +1,12 @@
 package assignment.client;
 
+import assignment.hotel.Hotel;
+
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+
+import static assignment.server.Server.getHotels;
 
 public class Client
 {
@@ -73,6 +78,19 @@ public class Client
 
         Socket socket = new Socket("localhost", 1234);
         Client client = new Client(socket, clientID);
+
+        ArrayList<Hotel> hotels = new ArrayList<Hotel>();
+
+        try
+        {
+            hotels = getHotels("hotelInfo.txt");
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
 }
