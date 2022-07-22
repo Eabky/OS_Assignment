@@ -1,6 +1,5 @@
 package assignment.server;
 
-import assignment.client.ClientHandler;
 import assignment.hotel.Hotel;
 
 import java.io.BufferedReader;
@@ -28,9 +27,7 @@ public class Server
             {
                 Socket socket = serverSocket.accept();
                 System.out.println("A client has connected!");
-                ClientHandler clientHandler = new ClientHandler(socket);
-                Thread thread = new Thread(clientHandler);
-                thread.start();
+
             }
         }
         catch (IOException e)

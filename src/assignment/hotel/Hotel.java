@@ -1,9 +1,6 @@
 package assignment.hotel;
 
-import assignment.client.ClientHandler;
-
 import java.io.*;
-import java.util.ArrayList;
 
 public class Hotel implements Serializable
 {
@@ -56,10 +53,5 @@ public class Hotel implements Serializable
         this.hotelDesc = hotelDesc;
     }
 
-    public static void main(String[] args)
-    {
-
-
-    }
 }
 

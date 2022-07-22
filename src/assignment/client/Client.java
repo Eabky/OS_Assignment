@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static assignment.server.Server.getHotels;
 
-public class Client
+public class Client implements Runnable
 {
     private Socket socket;
     private BufferedReader bufferedReader;
@@ -38,15 +38,16 @@ public class Client
 
     public void roomReservation()
     {
-        new Thread(new Runnable()
+        while (socket.isConnected())
         {
-            @Override
-            public void run()
-            {
 
-            }
+        }
+    }
 
-        }).start();
+    @Override
+    public void run()
+    {
+
     }
 
     public void shutDownEverything(Socket socket, BufferedWriter bufferedWriter, BufferedReader bufferedReader)
@@ -79,18 +80,21 @@ public class Client
         Socket socket = new Socket("localhost", 1234);
         Client client = new Client(socket, clientID);
 
-        ArrayList<Hotel> hotels = new ArrayList<Hotel>();
+        Thread thread = new Thread(client);
+        thread.start();
+
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try
         {
             hotels = getHotels("hotelInfo.txt");
         }
-        catch (IOException e)
+        catch (FileNotFoundException e)
         {
-            throw new RuntimeException(e);
+            throw new FileNotFoundException();
         }
 
-
+        client.roomReservation();
     }
 
 }
