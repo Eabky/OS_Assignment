@@ -1,9 +1,13 @@
 package assignment.hotel;
 
+import assignment.client.ClientHandler;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Hotel implements Serializable
 {
+    public static ArrayList<Hotel> hotels = new ArrayList<>(); //list of hotels
     public String hotelName;
     public String hotelLocation;
     public String hotelDesc;
@@ -13,19 +17,16 @@ public class Hotel implements Serializable
         this.hotelName = hotelName;
         this.hotelDesc = hotelDesc;
         this.hotelLocation = hotelLocation;
+
+        hotels.add(this);
     }
 
-    public class Room extends Hotel
+    public void printHotelInfo(String name, String location, String description)
     {
-        public int roomPrice;
-        public int numofBeds;
-        public int reservationPeriod; //amount of days of the reservation
-        public String roomDesc;
+        hotelName = name;
+        hotelLocation = location;
+        hotelDesc = description;
 
-        public Room(String hotelName, String hotelLocation, String hotelDesc)
-        {
-            super(hotelName, hotelLocation, hotelDesc);
-        }
     }
 }
 
