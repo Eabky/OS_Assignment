@@ -52,4 +52,10 @@ public class Room extends Hotel {
     public void setRoomDesc(String roomDesc) {
         this.roomDesc = roomDesc;
     }
+
+    @Override
+    public String toString()
+    {
+        return new StringBuffer("\n").append(this.roomPrice).append(" - ").append(this.numofBeds).append(" - ").append(this.reservationPeriod).append(" - ").append(this.roomDesc).append(" - ").append(this.hotelName).toString();
+    }
 }
