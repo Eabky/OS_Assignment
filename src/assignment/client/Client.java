@@ -6,8 +6,6 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import static assignment.server.Server.getHotels;
-
 public class Client implements Runnable
 {
     private Socket socket;
@@ -36,18 +34,13 @@ public class Client implements Runnable
 
     }
 
-    public void roomReservation()
+    @Override
+    public void run()
     {
         while (socket.isConnected())
         {
 
         }
-    }
-
-    @Override
-    public void run()
-    {
-
     }
 
     public void shutDownEverything(Socket socket, BufferedWriter bufferedWriter, BufferedReader bufferedReader)
@@ -83,18 +76,7 @@ public class Client implements Runnable
         Thread thread = new Thread(client);
         thread.start();
 
-        ArrayList<Hotel> hotels = new ArrayList<>();
-
-        try
-        {
-            hotels = getHotels("hotelInfo.txt");
-        }
-        catch (FileNotFoundException e)
-        {
-            throw new FileNotFoundException();
-        }
-
-        client.roomReservation();
+        client.run();
     }
 
 }
