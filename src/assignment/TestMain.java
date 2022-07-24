@@ -68,6 +68,18 @@ public class TestMain
         return roomsfromFile;
     }
 
+    public static void showRooms(ArrayList<Room> rooms, String name)
+    {
+        for(int i= 0; i < rooms.size(); i++)
+        {
+            if(rooms.get(i).hotelName.equals(name))
+            {
+                System.out.println(rooms.get(i));
+            }
+        }
+
+    }
+
     //main
     public static void main(String[] args)
     {
@@ -83,6 +95,8 @@ public class TestMain
         }
 
         System.out.println(hotels);
+
+        showRooms(hotels, "Dick's Hotel");
 
 
     }
