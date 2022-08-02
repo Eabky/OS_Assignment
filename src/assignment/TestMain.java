@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TestMain
 {
@@ -56,8 +57,6 @@ public class TestMain
 
                 roomCount++;
 
-                System.out.println("\nRoom" + roomCount + "\n" + room.getRoomPrice() + "\n" + room.getNumofBeds() + "\n" + room.getReservationPeriod() + "\n" + room.getRoomDesc());
-                System.out.println(room.hotelName);
             }
         }
 
@@ -80,22 +79,52 @@ public class TestMain
 
     }
 
+    public static void menu()
+    {
+        boolean menuCheck = true;
+        int menuChoise = 5;
+
+        ArrayList<Room> hotels = new ArrayList<>();
+
+        Scanner userInput = new Scanner(System.in);
+
+        while(menuCheck)
+        {
+            String userChoise = userInput.nextLine();
+            menuChoise = Integer.parseInt(userChoise);
+
+            switch (menuChoise)
+            {
+                case 1:
+                    try
+                    {
+                        hotels = getHotels("hotelInfo.txt", "roomInfo.txt");
+                    }
+                    catch (IOException e)
+                    {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+                    menuCheck = false;
+                    break;
+
+            }
+        }
+    }
+
     //main
     public static void main(String[] args)
     {
-        ArrayList<Room> hotels = new ArrayList<>();
-
-        try
-        {
-            hotels = getHotels("hotelInfo.txt", "roomInfo.txt");
-        }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
-
-        System.out.println(hotels);
-
-
+        menu();
     }
 }
