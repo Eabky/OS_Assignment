@@ -96,8 +96,6 @@ public class TestMain
 
         System.out.println(hotels);
 
-        showRooms(hotels, "Dick's Hotel");
-
 
     }
 }
